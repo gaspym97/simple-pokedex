@@ -1,3 +1,5 @@
+“This project uses a single-page layout to focus on API integration, state management, and UI composition. Routing was intentionally excluded to keep the scope focused and avoid unnecessary complexity.”
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
