@@ -11,7 +11,7 @@ function App() {
       <div className="min-h-screen bg-[#1f232d] flex flex-col items-center justify-between">
         <header className="w-full max-w-screen h-16 px-4 py-6 bg-red-600"></header>
         {showResult ? (
-          <PokemonCard pokemon={{ name: "Pikachu", type: ["Electric"], abilities: ["Static", "Volt Tackle"], height: 0.4, weight: 6.9, image: "https://example.com/pikachu.png" }} />
+          <PokemonCard />
         ) : (
           <div className="flex flex-col items-center gap-4">
             <h1 className="text-white text-5xl font-semibold antialiased lg:text-8xl xl:text-8xl">
