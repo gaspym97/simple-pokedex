@@ -31,30 +31,32 @@ function PokemonCard() {
               <nav>icon</nav>
             </div>
           </div>
-          <div className="text-white">
-            <nav className="mt-4 xl:text-3xl">Type</nav>
-            <ul className="inline-flex space-x-2">
-              <li>
-                <span className="bg-yellow-400 text-black px-2 py-1 rounded-md xl:text-2xl">
-                  Electric
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div className="text-white">
-            <nav className="xl:text-3xl">Weaknesses</nav>
-            <ul className="inline-flex space-x-2">
-              <li>
-                <span className="bg-blue-400 text-black px-2 py-1 rounded-md xl:text-2xl">
-                  Water
-                </span>
-              </li>
-              <li>
-                <span className="bg-green-400 text-black px-2 py-1 rounded-md xl:text-2xl">
-                  Ground
-                </span>
-              </li>
-            </ul>
+          <div className="space-y-2">
+            <div className="text-white flex flex-col gap-2">
+              <nav className="mt-4 xl:text-3xl">Type</nav>
+              <ul className="inline-flex space-x-2">
+                <li>
+                  <span className="bg-yellow-400 text-black px-2 py-1 rounded-md xl:text-2xl">
+                    Electric
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div className="text-white flex flex-col gap-2">
+              <nav className="xl:text-3xl">Weaknesses</nav>
+              <ul className="inline-flex space-x-2">
+                <li>
+                  <span className="bg-blue-400 text-black px-2 py-1 rounded-md xl:text-2xl">
+                    Water
+                  </span>
+                </li>
+                <li>
+                  <span className="bg-green-400 text-black px-2 py-1 rounded-md xl:text-2xl">
+                    Ground
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
