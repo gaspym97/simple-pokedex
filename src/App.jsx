@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div className="min-h-screen bg-[#1f232d] flex flex-col items-center justify-between">
-        <header className="w-full max-w-screen h-16 px-4 py-6 bg-red-600"></header>
+        <header className="w-full max-w-screen h-8 bg-red-600"></header>
         {showResult ? (
           <PokemonCard />
         ) : (
@@ -50,7 +50,7 @@ function App() {
             )}
           </div>
         )}
-        <footer className="w-full max-w-screen h-16 px-4 py-6 bg-white"></footer>
+        <footer className="w-full max-w-screen h-8 bg-white"></footer>
       </div>
     </>
   );
