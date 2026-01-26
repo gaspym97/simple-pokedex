@@ -18,24 +18,24 @@ function PokemonCard() {
         </div>
         <div className=" bg-white/10 border border-white/20 rounded-2xl p-4 shadow-lg shadow-black/20 w-80 lg:w-96 xl:w-[34rem] flex flex-col justify-center gap-4">
           <div className="grid grid-cols-3 gap-4 rounded-2xl bg-[#F8E5DD] p-4">
-            <div className="xl:text-3xl">
-              <nav>Height</nav>
+            <div className="xl:text-3xl flex flex-col items-center">
+              <nav className="font-bold">Height</nav>
               <nav>1'4"</nav>
             </div>
-            <div className="xl:text-3xl">
-              <nav>Weight</nav>
+            <div className="xl:text-3xl flex flex-col items-center">
+              <nav className="font-bold">Weight</nav>
               <nav>7 lbs</nav>
             </div>
-            <div className="xl:text-3xl">
-              <nav>Gender</nav>
+            <div className="xl:text-3xl flex flex-col items-center">
+              <nav className="font-bold">Gender</nav>
               <nav>icon</nav>
             </div>
-            <div className="xl:text-3xl">
-              <nav>Category</nav>
+            <div className="xl:text-3xl flex flex-col items-center">
+              <nav className="font-bold">Category</nav>
               <nav>icon</nav>
             </div>
-            <div className="xl:text-3xl">
-              <nav>Abilities</nav>
+            <div className="xl:text-3xl flex flex-col items-center">
+              <nav className="font-bold" >Abilities</nav>
               <nav>icon</nav>
             </div>
           </div>
@@ -43,11 +43,6 @@ function PokemonCard() {
             <div className="text-white flex flex-col items-center gap-2">
               <nav className="font-bold mt-4 xl:text-3xl self-center">Type</nav>
               <ul className="grid grid-cols-1 gap-2">
-                <li>
-                  <span className="bg-yellow-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
-                    Bug
-                  </span>
-                </li>
                 <li>
                   <span className="bg-yellow-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
                     Bug
@@ -61,16 +56,6 @@ function PokemonCard() {
                 <li>
                   <span className="bg-blue-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
                     Fighting
-                  </span>
-                </li>
-                <li>
-                  <span className="bg-green-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
-                    Psychic
-                  </span>
-                </li>
-                <li>
-                  <span className="bg-green-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
-                    Psychic
                   </span>
                 </li>
                 <li>
