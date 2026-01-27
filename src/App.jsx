@@ -3,8 +3,47 @@ import { Search, CircleArrowRight } from "lucide-react";
 import PokemonCard from "./components/PokemonCard";
 
 function App() {
+  const [query, setQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [showResult, setShowResult] = useState(false);
+  const [pokemon, setPokemon] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if (!query.trim()) return
+
+    setShowResult(true)
+    setIsSearching(false)
+
+    console.log("User submitted:", query);
+  }
+
+  async function fetchPokemonByName(name) {
+    try {
+      // start waiting for data
+      setLoading(true);
+      // clear previous errors
+      setError(null);
+
+      // ask api for data and wait for response
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+
+      // convert response into usable data
+      const data = await response.json()
+
+      // save data into state
+      setPokemon(data)
+    } catch (err) {
+      // if error happens, save an error message
+      setError("Failed to fetch Pokemon data.");
+    } finally {
+      // no matter what, stop loading
+      setLoading(false);
+    }
+  }
 
   return (
     <>
@@ -18,26 +57,27 @@ function App() {
               Find a Pokemon
             </h1>
             {isSearching ? (
-              <div className="flex items-center gap-2 flex flex-col">
+              <form 
+              className="flex items-center gap-2 flex flex-col"
+              onSubmit={handleSubmit}
+              >
                 <input
                   type="text"
                   placeholder="type name of pokemon..."
-                  //autoFocus
-                  onBlur={() => setIsSearching(false)}
+                  autoFocus
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  //onBlur={() => setIsSearching(false)}
                   className="mt-4 rounded-3xl px-4 py-3 text-white text-2xl lg:text-3xl xl:text-3xl outline-none border-white/20 bg-white/10 text-white shadow-lg shadow-black/20 transition hover:bg-white/20 w-80 h-16 lg:w-96 xl:w-96 lg:h-24 xl:h-24 active:scale-95"
                 />
                 <button
-                  type="button"
-                  onClick={() => {
-                    setShowResult(true);
-                    setIsSearching(false);
-                  }}
+                  type="submit"
                   aria-label="Search"
                   className="search_btn mt-4 flex size-16 lg:size-40 xl:size-40 justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-lg shadow-black/20 transition hover:bg-white/40 active:scale-90"
                 >
                   <CircleArrowRight className="size-8 lg:size-20 xl:size-20 text-white self-center" />
                 </button>
-              </div>
+              </form>
             ) : (
               <button
                 type="button"
