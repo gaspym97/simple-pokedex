@@ -13,12 +13,13 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    if (!query.trim()) return
+    const name = query.trim()
+    if (!name) return
 
     setShowResult(true)
     setIsSearching(false)
 
-    console.log("User submitted:", query);
+    fetchPokemonByName(name)
   }
 
   async function fetchPokemonByName(name) {
