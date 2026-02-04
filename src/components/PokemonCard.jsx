@@ -1,15 +1,16 @@
-function PokemonCard() {
+function PokemonCard({pokemon}) {
+  if (!pokemon) return null;
   return (
     <div className="flex flex-col items-center gap-4 my-10">
       <div className="flex items-center flex-col">
-        <h1 className="text-white text-5xl lg:text-6xl xl:text-7xl">Pikachu</h1>
-        <h2 className="text-white text-3xl lg:text-4xl xl:text-5xl">#025</h2>
+        <h1 className="text-white text-5xl lg:text-6xl xl:text-7xl">{pokemon.name}</h1>
+        <h2 className="text-white text-3xl lg:text-4xl xl:text-5xl">#{pokemon.id.toString().padStart(3, '0')}</h2>
       </div>
       <div className="flex flex-col gap-4 md:flex-row lg:flex-row xl:flex-row">
         <div className="bg-white/10 border border-white/20 rounded-2xl p-4 shadow-lg shadow-black/20 w-80 lg:w-96 xl:w-[34rem]">
           <img
-            src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
-            alt="pokemon"
+            src={pokemon.image}
+            alt={pokemon.name}
           />
           <p className="text-white xl:text-3xl">
             It sprays a foul fluid from its rear. Its stench spreads over a mile

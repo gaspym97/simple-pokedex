@@ -31,16 +31,17 @@ function App() {
 
       // ask api for data and wait for response
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+      if (!response.ok) throw new Error("Pokemon not found")
 
       // convert response into usable data
       const data = await response.json();
-      console.log(data)
 
       // save data into state
       setPokemon(data);
     } catch {
       // if error happens, save an error message
-      setError("Failed to fetch Pokemon data.");
+      setError(error.message || "Failed to fetch pokemon data")
+      setPokemon(null)
     } finally {
       // no matter what, stop loading
       setLoading(false);
@@ -52,12 +53,7 @@ function App() {
       <div className="min-h-screen bg-[#1f232d] flex flex-col items-center justify-between">
         <header className="w-full max-w-screen h-8 bg-red-600"></header>
         {showResult ? (
-          //<PokemonCard />
-          <div className="text-white p-6">
-            {loading && <p>Loading...</p>}
-            {error && <p className="text-red-400">{error}</p>}
-            {pokemon && <pre>{JSON.stringify(pokemon, null, 2)}</pre>}
-          </div>
+          <PokemonCard pokemon={pokemon} />
         ) : (
           <div className="flex flex-col items-center gap-4">
             <h1 className="text-white text-5xl font-semibold antialiased lg:text-8xl xl:text-8xl">
