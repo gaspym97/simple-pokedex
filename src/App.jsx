@@ -9,18 +9,18 @@ function App() {
   const [pokemon, setPokemon] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  
+
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const name = query.trim()
-    if (!name) return
+    const name = query.trim();
+    if (!name) return;
 
-    setShowResult(true)
-    setIsSearching(false)
+    setShowResult(true);
+    setIsSearching(false);
 
-    fetchPokemonByName(name)
-  }
+    fetchPokemonByName(name);
+  };
 
   async function fetchPokemonByName(name) {
     try {
@@ -30,14 +30,15 @@ function App() {
       setError(null);
 
       // ask api for data and wait for response
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
 
       // convert response into usable data
-      const data = await response.json()
+      const data = await response.json();
+      console.log(data)
 
       // save data into state
-      setPokemon(data)
-    } catch (err) {
+      setPokemon(data);
+    } catch {
       // if error happens, save an error message
       setError("Failed to fetch Pokemon data.");
     } finally {
@@ -51,16 +52,21 @@ function App() {
       <div className="min-h-screen bg-[#1f232d] flex flex-col items-center justify-between">
         <header className="w-full max-w-screen h-8 bg-red-600"></header>
         {showResult ? (
-          <PokemonCard />
+          //<PokemonCard />
+          <div className="text-white p-6">
+            {loading && <p>Loading...</p>}
+            {error && <p className="text-red-400">{error}</p>}
+            {pokemon && <pre>{JSON.stringify(pokemon, null, 2)}</pre>}
+          </div>
         ) : (
           <div className="flex flex-col items-center gap-4">
             <h1 className="text-white text-5xl font-semibold antialiased lg:text-8xl xl:text-8xl">
               Find a Pokemon
             </h1>
             {isSearching ? (
-              <form 
-              className="flex items-center gap-2 flex flex-col"
-              onSubmit={handleSubmit}
+              <form
+                className="flex items-center gap-2 flex flex-col"
+                onSubmit={handleSubmit}
               >
                 <input
                   type="text"
