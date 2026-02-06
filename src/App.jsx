@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Search, CircleArrowRight } from "lucide-react";
 import PokemonCard from "./components/PokemonCard";
+import getPokemonByName from "./api/pokeapi";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -29,16 +30,10 @@ function App() {
       // clear previous errors
       setError(null);
 
-      // ask api for data and wait for response
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-      if (!response.ok) throw new Error("Pokemon not found")
+      const pokemonData = await getPokemonByName(name);
+      setPokemon(pokemonData);
 
-      // convert response into usable data
-      const data = await response.json();
-
-      // save data into state
-      setPokemon(data);
-    } catch {
+    } catch (error) {
       // if error happens, save an error message
       setError(error.message || "Failed to fetch pokemon data")
       setPokemon(null)
