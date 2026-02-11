@@ -34,22 +34,26 @@ function PokemonCard({pokemon}) {
           <div className="space-y-2 flex flex-row justify-around items-baseline">
             <div className="text-white flex flex-col items-center gap-2">
               <nav className="font-bold mt-4 xl:text-3xl self-center">Type</nav>
-              <ul className="grid grid-cols-1 gap-2">
-                <li>
-                  <span className="bg-yellow-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
-                    Bug
-                  </span>
-                </li>
+              <ul className="types grid grid-cols-1 gap-2">
+                {pokemon.types.map(type => (
+                  <li key={type}>
+                    <span className="bg-yellow-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
+                      {type}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="text-white flex flex-col items-center gap-2">
               <nav className="font-bold xl:text-3xl">Weaknesses</nav>
-              <ul className="grid grid-cols-1 gap-2">
-                <li>
-                  <span className="bg-blue-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
-                    Fighting
-                  </span>
-                </li>
+              <ul className="weaknesses grid grid-cols-1 gap-2">
+                {pokemon.weaknesses.map(w => (
+                  <li key={w}>
+                    <span className="bg-blue-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
+                      {w}
+                    </span>
+                  </li>
+                ))}
                 <li>
                   <span className="bg-green-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
                     Psychic

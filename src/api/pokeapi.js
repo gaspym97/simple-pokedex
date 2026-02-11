@@ -41,13 +41,15 @@ async function fetchPokemonByName(name) {
         fetchJson(`https://pokeapi.co/api/v2/pokemon-species/${normalized}`)
     ])
 
+    const types = pokemonData.types.map(t => t.type.name)
+
     return {
         id: pokemonData.id,
         name: pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1),
         image: pokemonData.sprites.other["official-artwork"].front_default,
         height: pokemonData.height, // meters
         weight: pokemonData.weight, // kg
-        types: pokemonData.types.map(t => t.type.name),
+        types,
         weaknesses: await getWeaknessesFromTypes(types),
         mainAbility: getMainAbility(pokemonData),
         generation: formatGeneration(speciesData.generation.name),
