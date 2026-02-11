@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Search, CircleArrowRight } from "lucide-react";
 import PokemonCard from "./components/PokemonCard";
-import getPokemonByName from "./api/pokeapi";
+import fetchPokemon from "./api/pokeapi";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -30,7 +30,7 @@ function App() {
       // clear previous errors
       setError(null);
 
-      const pokemonData = await getPokemonByName(name);
+      const pokemonData = await fetchPokemon(name);
       setPokemon(pokemonData);
 
     } catch (error) {

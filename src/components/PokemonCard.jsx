@@ -1,3 +1,5 @@
+import typeColors from "../constants/typeColors";
+
 function PokemonCard({pokemon}) {
   if (!pokemon) return
   return (
@@ -37,7 +39,7 @@ function PokemonCard({pokemon}) {
               <ul className="types grid grid-cols-1 gap-2">
                 {pokemon.types.map(type => (
                   <li key={type}>
-                    <span className="bg-yellow-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
+                    <span className={`${typeColors[type]} uppercase inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl`}>
                       {type}
                     </span>
                   </li>
@@ -49,16 +51,11 @@ function PokemonCard({pokemon}) {
               <ul className="weaknesses grid grid-cols-1 gap-2">
                 {pokemon.weaknesses.map(w => (
                   <li key={w}>
-                    <span className="bg-blue-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
+                    <span className={`${typeColors[w]} uppercase inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl`}>
                       {w}
                     </span>
                   </li>
                 ))}
-                <li>
-                  <span className="bg-green-400 text-black inline-flex w-28 min-w-28 justify-center py-0.5 rounded-md xl:text-2xl">
-                    Psychic
-                  </span>
-                </li>
               </ul>
             </div>
           </div>

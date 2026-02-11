@@ -1,5 +1,4 @@
 
-
 async function fetchJson(url) {
     const res = await fetch(url)
     if (!res.ok) throw new Error('Pokemon not found')
@@ -33,7 +32,7 @@ function getMainAbility(pokemonData) {
     return pokemonData.abilities.find(a => !a.is_hidden)?.ability.name ?? "Unknown"
 }
 
-async function fetchPokemonByName(name) {
+async function fetchPokemon(name) {
     const normalized = name.toLowerCase().trim()
 
     const [pokemonData, speciesData] = await Promise.all([
@@ -57,4 +56,4 @@ async function fetchPokemonByName(name) {
     }
 }
 
-export default fetchPokemonByName
+export default fetchPokemon
