@@ -27,7 +27,7 @@ function PokemonCard({pokemon}) {
               <nav>{pokemon.weight / 10} kg</nav>
             </div>
             <div className="xl:text-3xl flex flex-col items-center">
-              <nav className="font-bold">Generation</nav>
+              <nav className="font-bold">Gen</nav>
               <nav>{pokemon.generation}</nav>
             </div>
           </div>

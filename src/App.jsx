@@ -48,7 +48,16 @@ function App() {
       <div className="min-h-screen bg-[#1f232d] flex flex-col items-center justify-between">
         <header className="w-full max-w-screen h-8 bg-red-600"></header>
         {showResult ? (
-          <PokemonCard pokemon={pokemon} />
+          <div>
+            {loading &&
+            <div className="flex flex-col items-center gap-4">
+              <h1 className="text-white text-2xl font-semibold antialiased lg:text-3xl xl:text-3xl">
+                Loading...
+              </h1>
+            </div>}
+            {error && <p className="text-red-500 text-2xl">{error}</p>}
+            {pokemon && <PokemonCard pokemon={pokemon} />}
+          </div>
         ) : (
           <div className="flex flex-col items-center gap-4">
             <h1 className="text-white text-5xl font-semibold antialiased lg:text-8xl xl:text-8xl">
