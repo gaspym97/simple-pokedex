@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, CircleArrowRight } from "lucide-react";
+import { Search, CircleArrowRight, CircleArrowLeft } from "lucide-react";
 import PokemonCard from "./components/PokemonCard";
 import fetchPokemon from "./api/pokeapi";
 
@@ -48,7 +48,23 @@ function App() {
       <div className="min-h-screen bg-[#1f232d] flex flex-col items-center justify-between">
         <header className="w-full max-w-screen h-8 bg-red-600"></header>
         {showResult ? (
-          <div>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2 mt-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowResult(false);
+                    setIsSearching(true);
+                    setPokemon(null);
+                    setQuery("");
+                    setError(null);
+                  }}
+                  aria-label="New search"
+                  className="search_btn flex items-center gap-2 justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-lg shadow-black/20 transition hover:bg-white/20 active:scale-90 px-4 py-2"
+                >
+                  <CircleArrowLeft className="size-6 lg:size-10 xl:size-10" />
+                </button>
+              </div>
             {loading &&
             <div className="flex flex-col items-center gap-4">
               <h1 className="text-white text-2xl font-semibold antialiased lg:text-3xl xl:text-3xl">
