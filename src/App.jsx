@@ -23,14 +23,14 @@ function App() {
     fetchPokemonByName(name);
   };
 
-  async function fetchPokemonByName(name) {
+  async function fetchPokemonByName(nameOrId) {
     try {
       // start waiting for data
       setLoading(true);
       // clear previous errors
       setError(null);
 
-      const pokemonData = await fetchPokemon(name);
+      const pokemonData = await fetchPokemon(nameOrId);
       setPokemon(pokemonData);
 
     } catch (error) {
@@ -86,7 +86,7 @@ function App() {
               >
                 <input
                   type="text"
-                  placeholder="type name of pokemon..."
+                  placeholder="type name/id of pokemon..."
                   autoFocus
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}

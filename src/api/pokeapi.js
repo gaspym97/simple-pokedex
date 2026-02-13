@@ -10,8 +10,8 @@ function getEnglishDescription(speciesData) {
     return entry ? entry.flavor_text.replace(/\f|\n/g, ' ') : 'No description available.'
 }
 
-function formatGeneration (genName) {
-    return genName.replace("generation-", "").toUpperCase()
+function formatGeneration (genNameOrId) {
+    return genNameOrId.replace("generation-", "").toUpperCase()
 }
 
 function unique(arr) {
@@ -32,8 +32,8 @@ function getMainAbility(pokemonData) {
     return pokemonData.abilities.find(a => !a.is_hidden)?.ability.name ?? "Unknown"
 }
 
-async function fetchPokemon(name) {
-    const normalized = name.toLowerCase().trim()
+async function fetchPokemon(nameOrId) {
+    const normalized = nameOrId.toLowerCase().trim()
 
     const [pokemonData, speciesData] = await Promise.all([
         fetchJson(`https://pokeapi.co/api/v2/pokemon/${normalized}`),
