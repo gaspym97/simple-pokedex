@@ -48,7 +48,7 @@ function App() {
       <div className="min-h-screen bg-[#1f232d] flex flex-col items-center justify-between">
         <header className="w-full max-w-screen h-8 bg-red-600"></header>
         {showResult ? (
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center w-full flex-1">
               <div className="flex items-center gap-2 mt-4">
                 <button
                   type="button"
@@ -90,7 +90,6 @@ function App() {
                   autoFocus
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  //onBlur={() => setIsSearching(false)}
                   className="mt-4 rounded-3xl px-4 py-3 text-white text-2xl lg:text-3xl xl:text-3xl outline-none border-white/20 bg-white/10 text-white shadow-lg shadow-black/20 transition hover:bg-white/20 w-80 h-16 lg:w-96 xl:w-96 lg:h-24 xl:h-24 active:scale-95"
                 />
                 <button
